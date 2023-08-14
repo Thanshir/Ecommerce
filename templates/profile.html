@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} My Profile {% endblock title %}
+
+
+<div class="mt-1">
+{% block content %}
+<img src="{% static '/images/user2.png' %}" alt="" class="img-fluid">
+
+
+</div>
+
+<section id="portfolio" class="portfolio">
+    <div class="container">
+        <table class="table table-info table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Products</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Delivery Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for i in items %}
+
+                    <td>{{i.name}}</td>
+                    
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock content %}

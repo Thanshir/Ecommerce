@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock title %}
+
+
+{% block content %}
+<h3>Welcome to <strong>Akhi's Shopping</strong></h3>
+<h1>We are here to help the Customers</h1>
+<a href="/contact" class="btn-get-started scrollto">Contact Us</a> <br><br>
+{% endblock content %}
+
+{% block body %}
+
+<h1 class="text-center">Contact Us</h1>
+
+
+
+<div class="container mt-2">
+
+    {% for message in messages %}
+      
+                     <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        
+                        <strong>{{message}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                    </div>
+      
+                {% endfor %}
+
+    <div class="row">
+
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+
+            <form  action="contact" method="POST"> 
+                {% csrf_token %}
+                <h3>
+                    
+                    
+                
+                    <label for="name" name="name">Full Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" name="name"  required><br><br>
+                    <label for="email">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="email"name="email" required value={{user.email}}   ><br><br>
+
+                    <label for="pnumber">Phone Number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="number"name="pnumber"  required ><br><br>
+                
+                    <label for="desc">How Can i Help You?</label>
+                    <textarea type="text" name="desc"  required></textarea><br><br>
+                
+                    
+                
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-dark">Submit</button><br><br>
+                
+                
+                
+                </h3>
+            </form>
+
+        </div>
+        <div class="col-md-2"></div>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock body %}
